@@ -53,7 +53,7 @@ class PaymentForm extends Component
      */
     public function getClientSecretProperty()
     {
-        $intent = Stripe::createIntent($this->cart);
+        $intent = Stripe::createIntent($this->cart, config('services.stripe.options', []));
 
         return $intent->client_secret;
     }
